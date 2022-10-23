@@ -153,19 +153,20 @@ class QuestionViewController: UIViewController {
     @IBAction func multipleAnswerButtonPressed() {
         let currentAnswers = questions[questionIndex].answers
         
-        if  multiLabel1.isOn {
+        if  multiSwitch1.isOn {
             answerChosen.append(currentAnswers[0])
         }
-        if multiLabel2.isOn {
+        if multiSwitch2.isOn {
             answerChosen.append(currentAnswers[1])
         }
-        if multiLabel3.isOn {
+        if multiSwitch3.isOn {
             answerChosen.append(currentAnswers[2])
         }
-        if multiLabel4.isOn {
+        if multiSwitch4.isOn {
             answerChosen.append(currentAnswers[3])
         }
         
+     nextQuestion()
     }
     
     
@@ -190,7 +191,7 @@ class QuestionViewController: UIViewController {
         }
      
         
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+         func prepare(for segue: UIStoryboardSegue, sender: Any?){
             if segue.identifier == "ResultsSegue" {
                 let resultsViewController = segue.destination as! ResultsViewController
                 resultsViewController.responses = answerChosen
